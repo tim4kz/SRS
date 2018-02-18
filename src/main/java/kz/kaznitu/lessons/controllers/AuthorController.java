@@ -5,10 +5,8 @@ import kz.kaznitu.lessons.reposotories.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -29,7 +27,7 @@ public class AuthorController {
                                           @RequestParam("lastname") String lastName,
                                           @RequestParam("email") String email){
         Author author = new Author(firstName, lastName, email) ;
-        authorRepository.save(author) ;
+        authorRepository.save(author);
         return "saved" ;
     }
 
@@ -43,5 +41,11 @@ public class AuthorController {
         List<Author> authors = (List<Author>) authorRepository.findAll() ;
         model.addAttribute("authors", authors) ;
         return "authors" ;
+    }
+
+    @RequestMapping(value = "/deleteContact",method = RequestMethod.GET)
+    public ModelAndView deleteContact(@RequestParam("id") long idd){
+        authorRepository.deleteById(idd);
+        return new ModelAndView("redirect:/demo/all2");
     }
 }
