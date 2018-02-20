@@ -16,27 +16,26 @@ public class AuthorController {
     @Autowired
     private AuthorRepository authorRepository ;
 
-    @RequestMapping("/show")
+    @RequestMapping("/add")
     public String showForm(Model model){
         model.addAttribute("author",new Author());
-        return "inp";
+        return "author_add_form";
     }
 
-    @GetMapping("/add")
-    public @ResponseBody String addAuthor(@RequestParam("firstname") String firstName,
-                                          @RequestParam("lastname") String lastName,
-                                          @RequestParam("email") String email){
-        Author author = new Author(firstName, lastName, email) ;
-        authorRepository.save(author);
-        return "saved" ;
+    @PostMapping("/add")
+    public String addAuthor(@ModelAttribute Author author){
+        authorRepository.save(author) ;
+
+        return "redirect:/demo/all" ;
     }
 
-    @GetMapping("/all")
+
+    @GetMapping("/all2")
     public @ResponseBody Iterable<Author> allAuthors(){
         return authorRepository.findAll() ;
     }
 
-    @GetMapping("/all2")
+    @GetMapping("/all")
     public String allAuthors2(Model model){
         List<Author> authors = (List<Author>) authorRepository.findAll() ;
         model.addAttribute("authors", authors) ;
