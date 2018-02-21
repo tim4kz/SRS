@@ -12,7 +12,6 @@ public class Book {
     private long book_id;
     private String book_name;
     private int years;
-    private long author_id;
 
     public Book() {
     }
@@ -20,7 +19,6 @@ public class Book {
     public Book(String book_name, int years, long author_id) {
         this.book_name = book_name;
         this.years = years;
-        this.author_id = author_id;
     }
 
     public long getBook_id() {
@@ -47,11 +45,4 @@ public class Book {
         this.years = years;
     }
 
-    public long getAuthor_id() {
-        return author_id;
-    }
-
-    public void setAuthor_id(long author_id) {
-        this.author_id = author_id;
-    }
 }

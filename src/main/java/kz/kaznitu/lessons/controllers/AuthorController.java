@@ -45,6 +45,6 @@ public class AuthorController {
     @RequestMapping(value = "/deleteContact",method = RequestMethod.GET)
     public ModelAndView deleteContact(@RequestParam("id") long idd){
         authorRepository.deleteById(idd);
-        return new ModelAndView("redirect:/demo/all2");
+        return new ModelAndView("redirect:/demo/all");
     }
 }
