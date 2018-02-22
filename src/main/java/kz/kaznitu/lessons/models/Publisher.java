@@ -15,6 +15,7 @@ public class Publisher {
     private int phone;
     private String address;
 
+    /*kuka*/
     public Publisher() {
     }
 
