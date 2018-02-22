@@ -22,6 +22,11 @@ public class AuthorController {
         return "author_add_form";
     }
 
+    @RequestMapping("/addd")
+    public String showFormm(Model model){
+        model.addAttribute("authorr",new Author());
+        return "update";
+    }
     @PostMapping("/add")
     public String addAuthor(@ModelAttribute Author author){
         authorRepository.save(author) ;
@@ -42,9 +47,16 @@ public class AuthorController {
         return "authors" ;
     }
 
+
+    /*@RequestMapping(value = "/update",method = RequestMethod.GET)
+    public ModelAndView updateAuthors(@RequestParam("id") long id){
+        authorRepository.findById(id);
+        return new ModelAndView("author_add_form");
+    }*/
     @RequestMapping(value = "/deleteContact",method = RequestMethod.GET)
     public ModelAndView deleteContact(@RequestParam("id") long idd){
         authorRepository.deleteById(idd);
         return new ModelAndView("redirect:/demo/all2");
     }
+
 }
