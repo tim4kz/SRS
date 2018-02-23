@@ -1,3 +1,13 @@
+header {
+    display: block; /* ??? ?????? ????????? */
+    /*height: 105px; ?????? ????? */
+    text-align: center;
+}
+.menu{
+    text-align: center;
+    font-size:18pt;
+}
+
 h3{
 	font-family:serif;
 	color:#ffffff;
@@ -21,15 +31,16 @@ a{
 	  color:#aee8e7;
 	  font-size:14pt;
   }
-#footer {
-    /*position: fixed;*/ /* Фиксированное положение */
-    left: 0; bottom: 0; /* Левый нижний угол */
-    padding: 10px; /* Поля вокруг текста */
-   background: yellow;  /* Цвет фона */
-    color: red;/* Цвет текста */
-	width: 100%; /* Ширина слоя */
-	font-style:italic;
-	text-align:center;
+
+footer {
+    position: absolute;
+    left: 0; bottom: 0;
+    padding: 10px;
+    background: yellow;
+    color: red;
+    width: 100%;
+    font-style:italic;
+    text-align:center;
 }
 p{
 	text-align: center;
