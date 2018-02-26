@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <title>Title</title>
+    <title>Тізімдер</title>
     <link rel="stylesheet" th:href = "@{/css/bootstrap.min.css}" />
 </head>
+
 <body>
+<style>
+
+    body{
+        background: #cd91f9;
+    }
+    footer {
+        position: absolute;
+        left: 0; bottom: 0;
+        padding: 10px;
+        background: #fffc73;
+        color: #ff6666;
+        width: 100%;
+        font-style:italic;
+        text-align:center;
+    }
+</style>
 <div class="container">
     <div class="row">
         <a th:href = "@{/demo/add}" class="btn btn-primary btn-lg" role="button">add</a>
@@ -29,5 +46,8 @@
 
 <script th:src = "@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<footer>
+    &copy;ALL rights reserved 2018
+</footer>
 </body>
 </html>
