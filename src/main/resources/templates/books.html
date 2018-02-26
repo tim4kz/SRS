@@ -21,6 +21,7 @@
                 <td th:text = "${book.bookName}">test</td>
                 <td th:text = "${book.year}">test</td>
                 <td> <a th:href = "@{'/book/deleteBook?id='+${book.id}}">delete</a></td>
+                <td> <a th:href = "@{'/book/updateBook?id='+${book.id}}">update</a></td>
             </tr>
         </table>
     </div>
