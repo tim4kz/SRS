@@ -37,10 +37,11 @@ public class AuthorController {
 
     @GetMapping("/all")
     public String allAuthors2(Model model){
-        List<Author> authors = (List<Author>) authorRepository.findAll() ;
+        List<Author> authors = (List<Author>) authorRepository.findAll();
         model.addAttribute("authors", authors) ;
         return "authors" ;
     }
+
 
     @RequestMapping(value = "/deleteContact",method = RequestMethod.GET)
     public ModelAndView deleteContact(@RequestParam("id") long idd){
