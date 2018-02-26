@@ -9,40 +9,41 @@ import javax.persistence.Id;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long book_id;
-    private String book_name;
-    private int years;
+    private long id;
+    private String bookName;
+    private int year;
 
     public Book() {
+        this.bookName = "" ;
+        this.year = 0 ;
     }
 
-    public Book(String book_name, int years, long author_id) {
-        this.book_name = book_name;
-        this.years = years;
+    public Book(String bookName, int year) {
+        this.bookName = bookName;
+        this.year = year;
     }
 
-    public long getBook_id() {
-        return book_id;
+    public long getId() {
+        return id;
     }
 
-    public void setBook_id(long book_id) {
-        this.book_id = book_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getBook_name() {
-        return book_name;
+    public String getBookName() {
+        return bookName;
     }
 
-    public void setBook_name(String book_name) {
-        this.book_name = book_name;
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
     }
 
-    public int getYears() {
-        return years;
+    public int getYear() {
+        return year;
     }
 
-    public void setYears(int years) {
-        this.years = years;
+    public void setYear(int year) {
+        this.year = year;
     }
-
 }
