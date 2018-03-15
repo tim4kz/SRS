@@ -8,22 +8,6 @@
 </head>
 
 <body>
-<style>
-
-    body{
-        background: #cd91f9;
-    }
-    footer {
-        position: absolute;
-        left: 0; bottom: 0;
-        padding: 10px;
-        background: #fffc73;
-        color: #ff6666;
-        width: 100%;
-        font-style:italic;
-        text-align:center;
-    }
-</style>
 <div class="container">
     <div class="row">
         <a th:href = "@{/demo/add}" class="btn btn-primary btn-lg" role="button">add</a>
@@ -34,12 +18,12 @@
                 <th>Last Name</th>
                 <th>email</th>
             </tr>
-            <tr th:each = "author : ${authors}">
-                <td th:text = "${author.firstName}">test</td>
-                <td th:text = "${author.lastName}">test</td>
-                <td th:text = "${author.email}">test</td>
-                <td> <a th:href = "@{'/demo/deleteContact?id='+${author.id}}">delete</a></td>
-                <td> <a th:href = "@{'/demo/update?id='+${author.id}}">update</a></td>
+            <tr th:each = "admin : ${admins}">
+                <td th:text = "${admin.firstName}">test</td>
+                <td th:text = "${admin.lastName}">test</td>
+                <td th:text = "${admin.email}">test</td>
+                <td> <a th:href = "@{'/demo/deleteContact?id='+${admin.id}}">delete</a></td>
+                <td> <a th:href = "@{'/demo/update?id='+${admin.id}}">update</a></td>
 
             </tr>
         </table>

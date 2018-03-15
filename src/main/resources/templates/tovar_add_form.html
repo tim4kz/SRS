@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="UTF-8" />
-    <title>Add Book page</title>
+    <title>Add Author page</title>
     <link rel="stylesheet" th:href = "@{/css/bootstrap.min.css}" />
 </head>
 <body>
@@ -12,12 +12,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="form-group">
-            <form action="#" th:action="@{/book/adds}" th:object = "${bookk}" method="POST">
-                <label for="bookname">Book Name</label>
-                <input type="text" id="bookname" name="bookname" th:field = "*{bookName}" class="form-control" placeholder="Атын енгіз" value="${book.bookName}"/>
+            <form action="#" th:action="@{/tovar/add}" th:object = "${tovar}" method="POST">
+                <label for="tovarname">Tovar Name</label>
+                <input type="text" id="tovarname" name="tovarname" th:field = "*{tovarName}" class="form-control" placeholder="Атын енгіз" />
 
-                <label for="years">Years</label>
-                <input type="text" id="years" name="yearse" th:field = "*{year}" class="form-control" placeholder="Жылын енгіз" value="${book.year}"/>
+                <label for="cost">Years</label>
+                <input type="text" id="cost" name="cost" th:field = "*{cost}" class="form-control" placeholder="Bagasyn engiz" />
 
 
                 <br/>

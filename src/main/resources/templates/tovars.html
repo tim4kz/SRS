@@ -14,14 +14,14 @@
         <br/>
         <table class="table">
             <tr>
-                <th>Book Name</th>
-                <th>Book years</th>
+                <th>Tovar Name</th>
+                <th>Tovar cost</th>
             </tr>
-            <tr th:each = "book : ${books}">
-                <td th:text = "${book.bookName}">test</td>
-                <td th:text = "${book.year}">test</td>
-                <td> <a th:href = "@{'/book/deleteBook?id='+${book.id}}">delete</a></td>
-                <td> <a th:href = "@{'/book/updateBook?id='+${book.id}}">update</a></td>
+            <tr th:each = "tovar : ${tovars}">
+                <td th:text = "${tovar.tovarName}">test</td>
+                <td th:text = "${tovar.cost}">test</td>
+                <td> <a th:href = "@{'/tovar/deleteTovar?id='+${tovar.id}}">delete</a></td>
+                <td> <a th:href = "@{'/tovar/updateTovar?id='+${tovar.id}}">update</a></td>
             </tr>
         </table>
     </div>

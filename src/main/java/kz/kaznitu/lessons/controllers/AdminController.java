@@ -1,7 +1,7 @@
 package kz.kaznitu.lessons.controllers;
 
-import kz.kaznitu.lessons.models.Author;
-import kz.kaznitu.lessons.reposotories.AuthorRepository;
+import kz.kaznitu.lessons.models.Admin;
+import kz.kaznitu.lessons.reposotories.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,50 +13,50 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "/demo")
-public class AuthorController {
+public class AdminController {
     @Autowired
-    private AuthorRepository authorRepository ;
+    private AdminRepository adminRepository;
     private long a;
 
     @RequestMapping("/add")
     public String showForm(Model model){
-        model.addAttribute("author",new Author());
-        return "author_add_form";
+        model.addAttribute("admin",new Admin());
+        return "admin_add_form";
     }
 
     @RequestMapping("/addd")
     public String showFormm(Model model){
-        model.addAttribute("authorr",new Author());
+        model.addAttribute("adminn",new Admin());
         return "update";
     }
     @PostMapping("/add")
-    public String addAuthor(@ModelAttribute Author author){
-        authorRepository.save(author) ;
+    public String addAdmin(@ModelAttribute Admin admin){
+        adminRepository.save(admin) ;
 
         return "redirect:/demo/all" ;
     }
 
 
     @GetMapping("/all2")
-    public @ResponseBody Iterable<Author> allAuthors(){
-        return authorRepository.findAll() ;
+    public @ResponseBody Iterable<Admin> allAuthors(){
+        return adminRepository.findAll() ;
     }
 
     @GetMapping("/all")
-    public String allAuthors2(Model model){
-        List<Author> authors = (List<Author>) authorRepository.findAll();
-        model.addAttribute("authors", authors) ;
-        return "authors" ;
+    public String allAdmins2(Model model){
+        List<Admin> admins = (List<Admin>) adminRepository.findAll();
+        model.addAttribute("admins", admins) ;
+        return "admins" ;
     }
 
     @PostMapping("/adds")
-    public String addsAuthor(@ModelAttribute Author author){
-        Author author1 = new Author();
-        author1.setId(a);
-        author1.setFirstName(author.getFirstName());
-        author1.setLastName(author.getLastName());
-        author1.setEmail(author.getEmail());
-        authorRepository.save(author1) ;
+    public String addsAdmin(@ModelAttribute Admin admin){
+        Admin admin1 = new Admin();
+        admin1.setId(a);
+        admin1.setFirstName(admin.getFirstName());
+        admin1.setLastName(admin.getLastName());
+        admin1.setEmail(admin.getEmail());
+        adminRepository.save(admin1) ;
 
         return "redirect:/demo/all" ;
     }
@@ -64,13 +64,13 @@ public class AuthorController {
     @RequestMapping(value = "/update",method = RequestMethod.GET)
     public ModelAndView updateAuthors(Model model,@RequestParam("id") long id){
         a=id;
-        Optional<Author> author = (Optional <Author> ) authorRepository.findById(id);
+        Optional<Admin> author = (Optional <Admin> ) adminRepository.findById(id);
         model.addAttribute("authorr",author);
         return new ModelAndView("update");
     }
     @RequestMapping(value = "/deleteContact",method = RequestMethod.GET)
     public ModelAndView deleteContact(@RequestParam("id") long idd){
-        authorRepository.deleteById(idd);
+        adminRepository.deleteById(idd);
         return new ModelAndView("redirect:/demo/all");
     }
 }
